@@ -4,15 +4,110 @@
     <meta charset="UTF-8">
     <title>HelpDesk - Gestión de Incidencias</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --marron-oscuro: #3f2b1f;
+            --marron-medio: #6f4e37;
+            --marron-claro: #b98b5d;
+            --terracota: #c76f43;
+            --naranja: #e7a75c;
+            --crema: #f7f1e8;
+            --blanco: #fffdf9;
+            --texto: #2d1d17;
+            --sombra: rgba(71, 46, 34, 0.12);
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8efe5 0%, #f3e1c7 40%, #f9f4ee 100%);
+            color: var(--texto);
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, var(--marron-oscuro), var(--marron-medio));
+            box-shadow: 0 4px 12px rgba(63, 43, 31, 0.18);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--terracota), var(--naranja));
+            border: none;
+            color: white;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #b45d35, #d18d4d);
+        }
+
+        .btn-outline-light {
+            border-color: rgba(255,255,255,0.7);
+            color: white;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.8);
+            border: 1px solid rgba(111, 78, 55, 0.12);
+            border-radius: 18px;
+            box-shadow: 0 10px 24px var(--sombra);
+        }
+
+        .table thead {
+            background: linear-gradient(90deg, var(--marron-oscuro), var(--marron-medio));
+            color: white;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            padding: 0.5rem 0.8rem;
+            border-radius: 999px;
+        }
+
+        .badge.bg-secondary {
+            background-color: var(--marron-claro) !important;
+        }
+
+        .table tbody tr {
+            transition: 0.2s ease;
+        }
+
+        .table tbody tr:hover {
+            background: #f9efe5;
+        }
+
+        .form-control, .form-select {
+            border: 1px solid #d6b38e;
+            border-radius: 10px;
+            background: #fffaf5;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--terracota);
+            box-shadow: 0 0 0 0.2rem rgba(199, 111, 67, 0.15);
+        }
+
+        .page-title {
+            color: var(--marron-oscuro);
+            font-weight: 700;
+        }
+
+        .text-muted {
+            color: #7a5a46 !important;
+        }
+    </style>
 </head>
-<body class="bg-light">
-    <nav class="navbar navbar-dark bg-dark mb-4">
+<body>
+    <nav class="navbar navbar-dark mb-4">
         <div class="container">
             <a class="navbar-brand" href="{% url 'lista_incidencias' %}">HelpDesk System</a>
             <a class="btn btn-outline-light btn-sm" href="{% url 'crear_incidencia' %}">+ Nueva Incidencia</a>
         </div>
     </nav>
-    <div class="container">
+    <div class="container py-3">
         {% block content %}{% endblock %}
     </div>
 </body>

@@ -1,15 +1,17 @@
 {% extends 'incidencias/base.html' %}
 {% block content %}
 <div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card shadow-sm p-4">
-            <h2 class="mb-3">Registrar Nueva Incidencia</h2>
+    <div class="col-md-7">
+        <div class="card p-4 p-md-5">
+            <h2 class="page-title mb-4 text-center">Registrar Nueva Incidencia</h2>
             <form method="post">
                 {% csrf_token %}
-                {{ form.as_p }}
+                <div class="mb-3">
+                    {{ form.as_p }}
+                </div>
                 <button type="submit" class="btn btn-primary w-100 mt-3">Guardar Incidencia</button>
             </form>
-            <a href="{% url 'lista_incidencias' %}" class="btn btn-link w-100 mt-2">Volver al listado</a>
+            <a href="{% url 'lista_incidencias' %}" class="btn btn-link w-100 mt-3 text-decoration-none" style="color: var(--marron-oscuro);">Volver al listado</a>
         </div>
     </div>
 </div>
