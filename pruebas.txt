@@ -1,0 +1,40 @@
+=====================================================
+PLAN DE PRUEBAS Y VALIDACIÓN - SISTEMA HELPDESK (UF2406)
+=====================================================
+
+Caso de Prueba 1: Validación de transiciones de estado en POO (UF2404)
+- Descripción: Comprobar que el módulo core_modelos.py bloquea transiciones de estado inválidas (ej. pasar de 'Cerrado' a 'En Proceso').
+- Resultado Esperado: Se lanza la excepción personalizada 'EstadoInvalidoError' interrumpiendo el flujo de manera controlada.
+- Resultado Obtenido: ÉXITO. La excepción fue capturada correctamente.
+
+Caso de Prueba 2: Validación de campos obligatorios en el formulario web (UF2405)
+- Descripción: Intentar registrar una nueva incidencia desde la interfaz web dejando el campo 'Título' vacío.
+- Resultado Esperado: El formulario de Django rechaza el envío y muestra un mensaje de error de validación en el campo correspondiente.
+- Resultado Obtenido: ÉXITO. El sistema impidió el guardado y alertó al usuario visualmente.
+
+Caso de Prueba 3: Gestión y filtrado en el Panel de Administración (UF2405)
+- Descripción: Ingresar al panel de admin de Django (/admin/), crear un técnico y filtrar el listado de incidencias por su estado y prioridad.
+- Resultado Esperado: Los filtros laterales operan correctamente y el buscador (search_fields) localiza registros por título o nombre del técnico.
+- Resultado Obtenido: ÉXITO. Los filtros y list_display responden de forma fluida y precisa.
+
+=====================================================
+Caso de Prueba 4: Pruebas unitarias automatizadas Django
+=====================================================
+
+- Descripción: Ejecución de las pruebas unitarias automatizadas
+  de la aplicación incidencias y del proyecto completo.
+
+- Comando ejecutado:
+  python manage.py test
+
+- Resultado esperado:
+  Todas las pruebas deben ejecutarse correctamente,
+  sin errores ni fallos.
+
+- Resultado obtenido:
+  ÉXITO. Django detectó 7 pruebas y las 7 finalizaron
+  correctamente.
+
+- Resultado final:
+  Ran 7 tests.
+  OK.
